@@ -23,9 +23,11 @@ mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "${command}"
 
 # Verifying is database and the table have been created.
 echo "Here are the databases:"
+echo "======================="
 mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "SHOW DATABASES;"
 
 echo
 
-echo "Hare are the tables in DB HEALTHCHECK"
+echo "Here are the tables in DB HEALTHCHECK"
+echo "====================================="
 mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "USE HEALTHCHECK;SHOW TABLES;"
