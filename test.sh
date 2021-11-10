@@ -12,19 +12,14 @@ command=$(tr -d '\n' < /tmp/db.sql)
 
 
 # This 'until' loop is running as long as the veryfing if MariaDB has been initialized.
-echo "Checking if MariaDB is available.."
 until mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "SHOW DATABASES;" >/dev/null 2>&1
 do
-  echo $?
   sleep 2
 done
 
 # After connection has been established, create the database and the table.
-echo "Connection has finally been established!"
-echo "Creating the database..."
 mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "${command}"
 
+
 # Verifying is database and the table have been created.
-sleep 15
-echo
 mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "SHOW DATABASES;"
