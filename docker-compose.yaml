@@ -2,8 +2,6 @@ services:
   init:
     container_name: MariaDB-Init
     build: .
-    depends_on:
-      - db
     environment:
       - DB_USER=root
       - DB_ROOT_PASSWORD=secret
