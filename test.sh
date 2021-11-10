@@ -22,4 +22,4 @@ mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "${command}"
 
 
 # Verifying is database and the table have been created.
-mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "SHOW DATABASES;"
+mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "SHOW DATABASES;USE HEALTHCHECK;SHOW TABLES;"
