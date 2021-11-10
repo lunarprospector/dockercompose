@@ -14,7 +14,6 @@ services:
   db:
     container_name: MariaDB
     image: mariadb:latest
-    command: mysqld --general-log=1 --general-log-file=/var/log/mysql/general-log.log
     environment:
       - MARIADB_USER=user1
       - MARIADB_PASSWORD=password
