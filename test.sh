@@ -11,7 +11,7 @@ user=$(env | grep ^DB_USER | awk -F "=" '{print $2}')
 command=$(tr -d '\n' < /tmp/db.sql)
 
 
-# This 'until' loop is running as long as the veryfing if MariaDB has been initialized.
+# This 'until' loop runs until the command returns a 'true' exit status (can see the databases).
 until mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "SHOW DATABASES;" >/dev/null 2>&1
 do
   sleep 2
@@ -22,4 +22,4 @@ mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "${command}"
 
 
 # Verifying is database and the table have been created.
-mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "SHOW DATABASES;USE HEALTHCHECK;SHOW TABLES;"
+mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "USE HEALTHCHECK;SHOW TABLES;"
