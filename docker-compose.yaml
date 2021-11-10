@@ -1,0 +1,26 @@
+services:
+  init:
+    container_name: MariaDB-Init
+    build: .
+    depends_on:
+      - db
+    environment:
+      - DB_USER=root
+      - DB_ROOT_PASSWORD=secret
+      - DB_PORT=3306
+      - DB_HOST=MariaDB
+    
+
+  db:
+    container_name: MariaDB
+    image: mariadb:latest
+    command: mysqld --general-log=1 --general-log-file=/var/log/mysql/general-log.log
+    environment:
+      - MARIADB_USER=user1
+      - MARIADB_PASSWORD=password
+      - MARIADB_ROOT_PASSWORD=secret
+    expose:
+      - "3306" 
+
+    ports:
+      - "13306:3306"
