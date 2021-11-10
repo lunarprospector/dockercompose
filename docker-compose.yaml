@@ -21,6 +21,3 @@ services:
       - MARIADB_ROOT_PASSWORD=secret
     expose:
       - "3306" 
-
-    ports:
-      - "13306:3306"
