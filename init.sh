@@ -21,7 +21,7 @@ done
 mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "${command}"
 
 
-# Verifying is database and the table have been created.
+# Verifying if database and the table have been created.
 echo "Here are the databases:"
 echo "======================="
 mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "SHOW DATABASES;"

@@ -4,4 +4,4 @@ RUN apk update && \
 
 COPY ["init.sh", "/tmp/"]
 COPY ["db.sql", "/tmp/"]
-CMD ["/bin/sh", "/tmp/init.sh"]
+ENTRYPOINT ["/bin/sh", "/tmp/init.sh"]
