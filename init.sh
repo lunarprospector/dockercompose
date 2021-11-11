@@ -8,7 +8,7 @@ user=$(env | grep ^DB_USER | awk -F "=" '{print $2}')
 
 
 # Removing the newlines from 'db.sql' so that the DB and the table can be created in one mysql command.
-command=$(tr -d '\n' < /tmp/db.sql)
+command=$(tr -d '\n' < /shared/db.sql)
 
 
 # This 'until' loop runs until the command returns a 'true' exit status (can see the databases).
@@ -17,8 +17,8 @@ do
   sleep 2
 done
 
-# After connection has been established, create the database and the table.
-mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "${command}"
+# After connection has been established, send a mysql command to MariaDB to source the local /app/db.sql file.
+mysql -u"${user}" -p"${pswd}" -h "${host}" -P"${port}" -e "source /app/db.sql;"
 
 
 # Verifying if database and the table have been created.

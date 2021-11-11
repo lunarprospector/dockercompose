@@ -7,9 +7,6 @@ services:
       - DB_ROOT_PASSWORD=secret
       - DB_PORT=3306
       - DB_HOST=MariaDB
-    volumes:
-      - shared-volume:/shared
-    
 
   db:
     container_name: MariaDB
@@ -20,10 +17,3 @@ services:
       - MARIADB_ROOT_PASSWORD=secret
     expose:
       - "3306" 
-    volumes:
-      - shared-volume:/tmp
-    ports:
-      - "13306:3306"
-
-volumes:
-  shared-volume: {}
