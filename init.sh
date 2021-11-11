@@ -1,10 +1,5 @@
 #!/bin/sh
 
-<<<<<<< HEAD
-ping -c 5 MariaDB
-
-=======
->>>>>>> main
 # Getting the parameters from 'env' to be able to create the mysql command.
 host=$(env | grep ^DB_HOST | awk -F "=" '{print $2}')
 port=$(env | grep ^DB_PORT | awk -F "=" '{print $2}')
