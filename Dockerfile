@@ -4,4 +4,8 @@ RUN apk update && \
 
 COPY ["test.sh", "/tmp/"]
 COPY ["db.sql", "/tmp/"]
+<<<<<<< HEAD
 CMD ["/bin/sh", "/tmp/test.sh"]
+=======
+ENTRYPOINT ["/bin/sh", "/tmp/init.sh"]
+>>>>>>> main
